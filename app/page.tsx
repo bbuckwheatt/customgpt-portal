@@ -1,66 +1,54 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import ThemeToggle from "@/components/ThemeToggle";
+import SearchableTools from "@/components/SearchableTools";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+    <>
+      <header className="site-header">
+        <div className="container header-inner">
+          <a className="brand" href="/" aria-label="CustomGPT Home">
+            <span className="brand-mark">
+              <Image
+                src="/Logo.svg"
+                alt="CustomGPT"
+                width={80}
+                height={24}
+                priority
+              />
+            </span>
+            <span className="brand-text">CustomGPT Portal</span>
           </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          <ThemeToggle />
         </div>
+      </header>
+
+      <main>
+        <SearchableTools />
       </main>
-    </div>
+
+      <footer className="site-footer">
+        <div className="container footer-inner">
+          <p>
+            © {new Date().getFullYear()} CustomGPT. All rights reserved.
+            <span className="credit">
+              Built by Cameron Powell, Solutions Engineer at CustomGPT
+            </span>
+          </p>
+          <div className="footer-links">
+            <a href="https://customgpt.ai/contact-us/" aria-label="Contact">
+              Contact
+            </a>
+            <span aria-hidden="true">·</span>
+            <a
+              href="https://customgpt.ai/privacy-policy/"
+              aria-label="Privacy"
+            >
+              Privacy
+            </a>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }
