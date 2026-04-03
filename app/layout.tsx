@@ -6,7 +6,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://customgpt-portal.vercel.app"),
+  metadataBase: new URL("https://customgpt-demos.vercel.app"),
   title: "CustomGPT Tools Portal",
   description: "Explore live demos and calculators built with CustomGPT.",
   openGraph: {
