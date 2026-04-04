@@ -64,24 +64,32 @@ export default function SearchableTools() {
 
   return (
     <>
-      <div className="hero-actions">
-        <input
-          type="search"
-          className="search"
-          placeholder="Search tools…"
-          aria-label="Search tools"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <a
-          href="https://customgpt.ai/"
-          className="btn btn-primary"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Visit CustomGPT.ai
-        </a>
-      </div>
+      <section className="hero">
+        <div className="container hero-inner">
+          <h1 className="hero-title">Deployments and Tools</h1>
+          <p className="hero-subtitle">
+            Explore live demos and calculators built with CustomGPT.
+          </p>
+          <div className="hero-actions">
+            <input
+              type="search"
+              className="search"
+              placeholder="Search tools…"
+              aria-label="Search tools"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <a
+              href="https://customgpt.ai/"
+              className="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit CustomGPT.ai
+            </a>
+          </div>
+        </div>
+      </section>
 
       <section id="tools" className="tools">
         <div className="container">

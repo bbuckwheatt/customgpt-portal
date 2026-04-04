@@ -13,8 +13,8 @@ export default function ShaderBackground() {
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
-    // Render at half resolution — shader is compute-heavy; upscaling is invisible
-    const SCALE = 0.5;
+    // Render below native res — shader cost scales with pixel count
+    const SCALE = 0.65;
     const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
     renderer.setPixelRatio(1); // never go above 1 — shader cost scales with pixel count
     renderer.setSize(
