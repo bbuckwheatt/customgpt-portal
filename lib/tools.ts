@@ -3,7 +3,7 @@ export type Tool = {
   name: string;
   description: string;
   url: string;
-  emoji: string;
+  icon: string;
   tags: string[];
 };
 
@@ -13,7 +13,7 @@ export const tools: Tool[] = [
     name: "CustomGPT Demo",
     description: "Learn what is possible out-of-the-box with CustomGPT.",
     url: "https://customgpt-demo.replit.app/",
-    emoji: "🤖",
+    icon: "Bot",
     tags: ["chatbot", "demo", "customgpt"],
   },
   {
@@ -21,7 +21,7 @@ export const tools: Tool[] = [
     name: "CustomGPT ROI Calculator",
     description: "Estimate your ROI and payback with CustomGPT.",
     url: "https://customgpt-roi.replit.app/",
-    emoji: "📈",
+    icon: "TrendingUp",
     tags: ["roi", "calculator", "customgpt"],
   },
   {
@@ -29,7 +29,7 @@ export const tools: Tool[] = [
     name: "CustomGPT Instant Viewer",
     description: "Test CustomGPT's Instant Viewer deployment method.",
     url: "https://instant-viewer-demo.replit.app",
-    emoji: "⚡",
+    icon: "Zap",
     tags: ["instant", "viewer", "demo", "customgpt"],
   },
   {
@@ -37,7 +37,7 @@ export const tools: Tool[] = [
     name: "Multi-Agent Live Chat",
     description: "Test a multi-agent chat and switch agents via a dropdown.",
     url: "https://dropdown-test.replit.app",
-    emoji: "🔀",
+    icon: "Shuffle",
     tags: ["chatbot", "agents", "demo", "dropdown"],
   },
   {
@@ -45,23 +45,23 @@ export const tools: Tool[] = [
     name: "CustomGPT + Web Search MCP",
     description: "Demo of CustomGPT's MCP connection enabling web search.",
     url: "https://customgpt-web-search.replit.app",
-    emoji: "🌐",
+    icon: "Globe",
     tags: ["mcp", "web", "search", "demo", "customgpt"],
   },
   {
     id: "ai-vision-mazda-hub",
-    name: "CustomGPT AI Vision Capability Demo",
+    name: "CustomGPT AI Vision Demo",
     description: "AI Vision demo based on a Mazda hatchback hub.",
     url: "https://mazda-hatchback-hub.replit.app",
-    emoji: "🚗",
+    icon: "Eye",
     tags: ["vision", "ai", "demo", "customgpt", "mazda", "hatchback"],
   },
   {
     id: "ai-search-functionality",
-    name: "CustomGPT.ai Search Functionality",
+    name: "CustomGPT.ai Search",
     description: "Demo showcasing CustomGPT.ai's AI search deployment.",
     url: "https://customgpt.replit.app",
-    emoji: "🔍",
+    icon: "Search",
     tags: ["search", "ai", "demo", "customgpt"],
   },
   {
@@ -69,16 +69,16 @@ export const tools: Tool[] = [
     name: "Solo Stove E-commerce Demo",
     description: "CustomGPT e-commerce demo.",
     url: "https://solostove-demo.replit.app",
-    emoji: "🛒",
+    icon: "ShoppingCart",
     tags: ["ecommerce", "demo", "customgpt", "shopping"],
   },
   {
     id: "needham-athletic-club",
     name: "Needham Athletic Club",
     description:
-      "Needham Athletic Club website, showcasing lead capture, webpage awareness, and an internal admin dashboard agent.",
+      "Website showcasing lead capture, webpage awareness, and an admin dashboard agent.",
     url: "https://needham-athletic-club.replit.app/",
-    emoji: "🏋️",
+    icon: "Dumbbell",
     tags: ["website", "lead capture", "admin", "dashboard", "demo"],
   },
 ];

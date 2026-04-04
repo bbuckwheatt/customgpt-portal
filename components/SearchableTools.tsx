@@ -1,9 +1,34 @@
 "use client";
 
 import { useState } from "react";
+import {
+  Bot,
+  TrendingUp,
+  Zap,
+  Shuffle,
+  Globe,
+  Eye,
+  Search,
+  ShoppingCart,
+  Dumbbell,
+  type LucideIcon,
+} from "lucide-react";
 import { tools, type Tool } from "@/lib/tools";
 
+const iconMap: Record<string, LucideIcon> = {
+  Bot,
+  TrendingUp,
+  Zap,
+  Shuffle,
+  Globe,
+  Eye,
+  Search,
+  ShoppingCart,
+  Dumbbell,
+};
+
 function ToolCard({ tool }: { tool: Tool }) {
+  const Icon = iconMap[tool.icon] ?? Bot;
   return (
     <a
       className="card"
@@ -11,12 +36,16 @@ function ToolCard({ tool }: { tool: Tool }) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="card-icon">{tool.emoji}</div>
-      <div>
+      <div className="card-icon">
+        <Icon size={22} strokeWidth={1.75} aria-hidden="true" />
+      </div>
+      <div className="card-content">
         <h3>{tool.name}</h3>
         <p>{tool.description}</p>
       </div>
-      <span className="card-cta">Open →</span>
+      <span className="card-cta" aria-hidden="true">
+        Open →
+      </span>
     </a>
   );
 }
@@ -35,33 +64,24 @@ export default function SearchableTools() {
 
   return (
     <>
-      <section className="hero">
-        <div className="container hero-inner">
-          <h1 className="hero-title">Deployments and Tools</h1>
-          <p className="hero-subtitle">
-            Explore live demos and calculators built with CustomGPT.
-          </p>
-          <div className="hero-actions">
-            <input
-              type="search"
-              className="search"
-              placeholder="Search tools…"
-              aria-label="Search tools"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <a
-              href="https://customgpt.ai/"
-              className="btn btn-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Visit CustomGPT.ai"
-            >
-              Visit CustomGPT.ai
-            </a>
-          </div>
-        </div>
-      </section>
+      <div className="hero-actions">
+        <input
+          type="search"
+          className="search"
+          placeholder="Search tools…"
+          aria-label="Search tools"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <a
+          href="https://customgpt.ai/"
+          className="btn btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit CustomGPT.ai
+        </a>
+      </div>
 
       <section id="tools" className="tools">
         <div className="container">
