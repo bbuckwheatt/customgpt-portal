@@ -7,10 +7,6 @@ export default function ShaderBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
     const container = containerRef.current;
     if (!container) return;
 
@@ -96,9 +92,7 @@ export default function ShaderBackground() {
 
     let frameId: number;
     const animate = () => {
-      if (!prefersReducedMotion) {
-        material.uniforms.iTime.value += 0.016;
-      }
+      material.uniforms.iTime.value += 0.016;
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(animate);
     };

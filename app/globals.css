@@ -60,12 +60,21 @@ body {
 }
 
 /* ─── Base ───────────────────────────────────────────────────────────────── */
+/* html gets the fallback colour shown before Three.js initialises */
+html {
+  background: #0c0a1b;
+}
+
+[data-theme="light"] html {
+  background: #f5f3ff;
+}
+
 body {
   font-family: var(--font);
   font-size: 16px;
   line-height: 1.6;
   color: var(--text);
-  background: var(--bg);
+  background: transparent;
   -webkit-font-smoothing: antialiased;
 }
 
