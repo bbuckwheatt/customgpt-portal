@@ -12,16 +12,28 @@ export default function ShaderBackground() {
 
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Render at half resolution — shader is compute-heavy; upscaling is invisible
+    const SCALE = 0.5;
+    const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
+    renderer.setPixelRatio(1); // never go above 1 — shader cost scales with pixel count
+    renderer.setSize(
+      Math.floor(window.innerWidth * SCALE),
+      Math.floor(window.innerHeight * SCALE)
+    );
+    // Stretch canvas to fill viewport via CSS
+    renderer.domElement.style.width = "100%";
+    renderer.domElement.style.height = "100%";
     container.appendChild(renderer.domElement);
 
     const material = new THREE.ShaderMaterial({
       uniforms: {
         iTime: { value: 0 },
         iResolution: {
-          value: new THREE.Vector2(window.innerWidth, window.innerHeight),
+          value: new THREE.Vector2(
+            window.innerWidth * SCALE,
+            window.innerHeight * SCALE
+          ),
         },
       },
       vertexShader: `void main() { gl_Position = vec4(position, 1.0); }`,
@@ -29,7 +41,7 @@ export default function ShaderBackground() {
         uniform float iTime;
         uniform vec2 iResolution;
 
-        #define NUM_OCTAVES 3
+        #define NUM_OCTAVES 2
 
         float rand(vec2 n) {
           return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
@@ -65,10 +77,10 @@ export default function ShaderBackground() {
           vec4 o = vec4(0.0);
           float f = 2.0 + fbm(p + vec2(iTime * 5.0, 0.0)) * 0.5;
 
-          for (float i = 0.0; i < 35.0; i++) {
+          for (float i = 0.0; i < 20.0; i++) {
             v = p + cos(i * i + (iTime + p.x * 0.08) * 0.025 + i * vec2(13.0, 11.0)) * 3.5
               + vec2(sin(iTime * 3.0 + i) * 0.003, cos(iTime * 3.5 - i) * 0.003);
-            float tailNoise = fbm(v + vec2(iTime * 0.5, i)) * 0.3 * (1.0 - (i / 35.0));
+            float tailNoise = fbm(v + vec2(iTime * 0.5, i)) * 0.3 * (1.0 - (i / 20.0));
             vec4 auroraColors = vec4(
               0.1 + 0.3 * sin(i * 0.2 + iTime * 0.4),
               0.3 + 0.5 * cos(i * 0.3 + iTime * 0.5),
@@ -76,7 +88,7 @@ export default function ShaderBackground() {
               1.0
             );
             vec4 contribution = auroraColors * exp(sin(i * i + iTime * 0.8)) / length(max(v, vec2(v.x * f * 0.015, v.y * 1.5)));
-            float thinness = smoothstep(0.0, 1.0, i / 35.0) * 0.6;
+            float thinness = smoothstep(0.0, 1.0, i / 20.0) * 0.6;
             o += contribution * (1.0 + tailNoise * 0.8) * thinness;
           }
 
@@ -87,8 +99,7 @@ export default function ShaderBackground() {
     });
 
     const geometry = new THREE.PlaneGeometry(2, 2);
-    const mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
+    scene.add(new THREE.Mesh(geometry, material));
 
     let frameId: number;
     const animate = () => {
@@ -99,11 +110,10 @@ export default function ShaderBackground() {
     animate();
 
     const handleResize = () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      material.uniforms.iResolution.value.set(
-        window.innerWidth,
-        window.innerHeight
-      );
+      const w = Math.floor(window.innerWidth * SCALE);
+      const h = Math.floor(window.innerHeight * SCALE);
+      renderer.setSize(w, h);
+      material.uniforms.iResolution.value.set(w, h);
     };
     window.addEventListener("resize", handleResize);
 

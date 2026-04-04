@@ -60,12 +60,12 @@ body {
 }
 
 /* ─── Base ───────────────────────────────────────────────────────────────── */
-/* html gets the fallback colour shown before Three.js initialises */
+/* Fallback colour shown before Three.js canvas renders */
 html {
   background: #0c0a1b;
 }
 
-[data-theme="light"] html {
+html[data-theme="light"] {
   background: #f5f3ff;
 }
 
