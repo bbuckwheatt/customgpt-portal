@@ -51,7 +51,7 @@ export const tools: Tool[] = [
   },
   {
     id: "ai-search-functionality",
-    name: "CustomGPT.ai Search",
+    name: "CustomGPT.ai Search Bar",
     description: "Demo showcasing CustomGPT.ai's AI search deployment.",
     url: "https://customgpt.replit.app",
     icon: "Search",
