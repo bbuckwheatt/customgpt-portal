@@ -17,12 +17,13 @@ export const tools: Tool[] = [
     tags: ["chatbot", "demo", "customgpt"],
   },
   {
-    id: "instant-viewer-demo",
-    name: "CustomGPT Instant Viewer",
-    description: "Test CustomGPT's Instant Viewer deployment method.",
-    url: "https://instant-viewer-demo.replit.app",
-    icon: "Zap",
-    tags: ["instant", "viewer", "demo", "customgpt"],
+    id: "security-docs-instant-viewer",
+    name: "Security Docs Instant Viewer",
+    description:
+      "Instant Viewer demo powered by CustomGPT's GDPR and SOC2 compliance reports.",
+    url: "https://security-docs.replit.app/",
+    icon: "ShieldCheck",
+    tags: ["instant", "viewer", "demo", "security", "gdpr", "soc2"],
   },
   {
     id: "multi-agent-dropdown",
