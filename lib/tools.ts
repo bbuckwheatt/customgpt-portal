@@ -10,7 +10,7 @@ export type Tool = {
 export const tools: Tool[] = [
   {
     id: "standard-demo",
-    name: "CustomGPT Demo",
+    name: "CustomGPT Custom Context Demo",
     description: "Learn what is possible out-of-the-box with CustomGPT.",
     url: "https://customgpt-demo.replit.app/",
     icon: "Bot",
