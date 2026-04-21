@@ -58,6 +58,15 @@ export const tools: Tool[] = [
     tags: ["search", "ai", "demo", "customgpt"],
   },
   {
+    id: "customgpt-custom-frontend",
+    name: "CustomGPT Custom Front End Demo",
+    description:
+      "A custom-built frontend showcasing auth, end user rate limiting, artifact creation, and conversation history.",
+    url: "https://customgpt-custom-frontend.vercel.app/",
+    icon: "AppWindow",
+    tags: ["frontend", "auth", "demo", "customgpt", "artifacts"],
+  },
+  {
     id: "nextgen-financial-research-tool",
     name: "NextGen Financial Research Tool",
     description:
