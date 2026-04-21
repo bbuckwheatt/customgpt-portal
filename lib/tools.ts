@@ -37,7 +37,7 @@ export const tools: Tool[] = [
     id: "web-search-mcp",
     name: "CustomGPT + Web Search MCP",
     description: "Demo of CustomGPT's MCP connection enabling web search.",
-    url: "https://customgpt-web-search.replit.app",
+    url: "https://agent-search-demo.lovable.app",
     icon: "Globe",
     tags: ["mcp", "web", "search", "demo", "customgpt"],
   },
