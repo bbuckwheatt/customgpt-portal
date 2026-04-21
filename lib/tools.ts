@@ -17,14 +17,6 @@ export const tools: Tool[] = [
     tags: ["chatbot", "demo", "customgpt"],
   },
   {
-    id: "roi-calculator",
-    name: "CustomGPT ROI Calculator",
-    description: "Estimate your ROI and payback with CustomGPT.",
-    url: "https://customgpt-roi.replit.app/",
-    icon: "TrendingUp",
-    tags: ["roi", "calculator", "customgpt"],
-  },
-  {
     id: "instant-viewer-demo",
     name: "CustomGPT Instant Viewer",
     description: "Test CustomGPT's Instant Viewer deployment method.",
@@ -65,12 +57,22 @@ export const tools: Tool[] = [
     tags: ["search", "ai", "demo", "customgpt"],
   },
   {
-    id: "solostove-ecommerce",
-    name: "Solo Stove E-commerce Demo",
-    description: "CustomGPT e-commerce demo.",
-    url: "https://solostove-demo.replit.app",
-    icon: "ShoppingCart",
-    tags: ["ecommerce", "demo", "customgpt", "shopping"],
+    id: "nextgen-financial-research-tool",
+    name: "NextGen Financial Research Tool",
+    description:
+      "A NextGen Agent for financial analysis and asset creation of public data.",
+    url: "https://bobb0vkmzz.customgpt-agents.com",
+    icon: "LineChart",
+    tags: ["analytics", "financial", "nextgen", "personal"],
+  },
+  {
+    id: "nextgen-financial-contract-analyst",
+    name: "NextGen Financial Contract Analyst (Internal)",
+    description:
+      "A NextGen Agent loaded with sample financial spreadsheets and contracts for analytical usage.",
+    url: "https://crystal-contract-chat.lovable.app/",
+    icon: "FileSpreadsheet",
+    tags: ["analytics", "financial", "contracts", "nextgen"],
   },
   {
     id: "needham-athletic-club",
